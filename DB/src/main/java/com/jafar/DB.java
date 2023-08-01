@@ -17,46 +17,48 @@ public class DB {
     public void readDataBase() throws Exception {
         try {
             // This will load the MySQL driver, each DB has its own driver
-            Class.forName("org.mariadb.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             // Setup the connection with the DB
-            connect = DriverManager.getConnection("jdbc:mariadb://localhost/atypon", "jafar", "jafar");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/atypon", "root", "root");
+            System.out.println("Connected to DB");
 
-            // Statements allow to issue SQL queries to the database
-            statement = connect.createStatement();
-            // Result set get the result of the SQL query
-            resultSet = statement
-                    .executeQuery("select * from atypon.comments");
-            writeResultSet(resultSet);
-
-            // PreparedStatements can use variables and are more efficient
-            preparedStatement = connect
-                    .prepareStatement("insert into  atypon.comments values (default, ?, ?, ?, ? , ?, ?)");
-            // "myuser, webpage, datum, summary, COMMENTS from atypon.comments");
-            // Parameters start with 1
-            preparedStatement.setString(1, "Test");
-            preparedStatement.setString(2, "TestEmail");
-            preparedStatement.setString(3, "TestWebpage");
-            preparedStatement.setDate(4, new java.sql.Date(2009, 12, 11));
-            preparedStatement.setString(5, "TestSummary");
-            preparedStatement.setString(6, "TestComment");
-            preparedStatement.executeUpdate();
-
-            preparedStatement = connect
-                    .prepareStatement("SELECT myuser, webpage, datum, summary, COMMENTS from atypon.comments");
-            resultSet = preparedStatement.executeQuery();
-            writeResultSet(resultSet);
-
-            // Remove again the insert comment
-            preparedStatement = connect
-                    .prepareStatement("delete from atypon.comments where myuser= ? ; ");
-            preparedStatement.setString(1, "Test");
-            preparedStatement.executeUpdate();
-
-            resultSet = statement
-                    .executeQuery("select * from atypon.comments");
-            writeMetaData(resultSet);
-
+//            // Statements allow to issue SQL queries to the database
+//            statement = connect.createStatement();
+//            // Result set get the result of the SQL query
+//            resultSet = statement
+//                    .executeQuery("select * from atypon.comments");
+//            writeResultSet(resultSet);
+//
+//            // PreparedStatements can use variables and are more efficient
+//            preparedStatement = connect
+//                    .prepareStatement("insert into  atypon.comments values (default, ?, ?, ?, ? , ?, ?)");
+//            // "myuser, webpage, datum, summary, COMMENTS from atypon.comments");
+//            // Parameters start with 1
+//            preparedStatement.setString(1, "Test");
+//            preparedStatement.setString(2, "TestEmail");
+//            preparedStatement.setString(3, "TestWebpage");
+//            preparedStatement.setDate(4, new java.sql.Date(2009, 12, 11));
+//            preparedStatement.setString(5, "TestSummary");
+//            preparedStatement.setString(6, "TestComment");
+//            preparedStatement.executeUpdate();
+//
+//            preparedStatement = connect
+//                    .prepareStatement("SELECT myuser, webpage, datum, summary, COMMENTS from atypon.comments");
+//            resultSet = preparedStatement.executeQuery();
+//            writeResultSet(resultSet);
+//
+//            // Remove again the insert comment
+//            preparedStatement = connect
+//                    .prepareStatement("delete from atypon.comments where myuser= ? ; ");
+//            preparedStatement.setString(1, "Test");
+//            preparedStatement.executeUpdate();
+//
+//            resultSet = statement
+//                    .executeQuery("select * from atypon.comments");
+//            writeMetaData(resultSet);
+//
         } catch (Exception e) {
+            System.out.println("Error connecting to DB");
             throw e;
         } finally {
             close();
