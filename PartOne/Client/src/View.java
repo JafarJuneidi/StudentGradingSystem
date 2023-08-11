@@ -12,9 +12,9 @@ public class View {
         return new GetUsersRequest(!roleId.equals("0") ? roleId: null);
     }
 
-    public static Request getCoursesView(Scanner scanner) {
+    public static Request getCoursesView() {
         System.out.println("You selected 'GetCourses'");
-        return new GetCoursesRequest();
+        return new GetCoursesRequest(null);
     }
 
     public static Request getRolesView(Scanner scanner) {

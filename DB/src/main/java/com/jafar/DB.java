@@ -160,41 +160,6 @@ public class DB {
         return roles;
     }
 
-    public List<StudentGrade> getStudentsGrades() {
-        List<StudentGrade> studentsGrades = new ArrayList<>();
-
-        String SQL = """
-        SELECT
-        U1.name AS student_name,
-                C.name AS course_name,
-        G.grade AS grade,
-                U2.name AS instructor_name
-        FROM
-        Grades G
-        JOIN
-        Users U1 ON G.student_id = U1.id
-        JOIN
-        Courses C ON G.course_id = C.id
-        JOIN
-        Users U2 ON C.instructor_id = U2.id;""";
-
-        try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(SQL);
-
-            while (rs.next()) {
-                String studentName = rs.getString("student_name");
-                String courseName = rs.getString("course_name");
-                String grade = rs.getString("grade");
-                String instructorName = rs.getString("instructor_name");
-                studentsGrades.add(new StudentGrade(studentName, courseName, instructorName, grade));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return studentsGrades;
-    }
-
     public List<StudentGrade> getStudentGrades(String studentId, String courseId) {
         List<StudentGrade> studentsGrades = new ArrayList<>();
 

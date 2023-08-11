@@ -63,17 +63,14 @@ public class Client {
 
         while (true) {
             switch (user.role()) {
-                case "Admin": {
+                case "Admin" -> {
                     showAdminOptions();
-                    break;
                 }
-                case "Instructor": {
+                case "Instructor" -> {
                     showInstructorOptions();
-                    break;
                 }
-                case "Student": {
+                case "Student" -> {
                     showStudentOptions();
-                    break;
                 }
             }
             int choice = scanner.nextInt();
@@ -85,17 +82,14 @@ public class Client {
             }
 
             switch (user.role()) {
-                case "Admin": {
+                case "Admin" -> {
                     handleAdminChoice(choice, scanner);
-                    break;
                 }
-                case "Instructor": {
+                case "Instructor" -> {
                     handleInstructorChoice(choice, scanner);
-                    break;
                 }
-                case "Student": {
+                case "Student" -> {
                     handleStudentChoice(choice, scanner);
-                    break;
                 }
             }
 
@@ -153,7 +147,7 @@ public class Client {
                 ((GetUsersResponse) sendRequest(View.getUsersView(scanner))).print();
                 break;
             case 2:
-                ((GetCoursesResponse) sendRequest(View.getCoursesView(scanner))).print();
+                ((GetCoursesResponse) sendRequest(View.getCoursesView())).print();
                 break;
             case 3:
                 ((GetRolesResponse) sendRequest(View.getRolesView(scanner))).print();
@@ -187,9 +181,7 @@ public class Client {
                 break;
             case 13:
                 Optional<Request> optionalRequest = View.deleteUserView(scanner, user);
-                if (optionalRequest.isPresent()) {
-                    ((OperationResponse) sendRequest(optionalRequest.get())).print();
-                }
+                optionalRequest.ifPresent(request -> ((OperationResponse) sendRequest(request)).print());
                 break;
             case 14:
                 ((OperationResponse) sendRequest(View.deleteGradeView(scanner))).print();
@@ -227,7 +219,7 @@ public class Client {
     private static void handleStudentChoice(int choice, Scanner scanner) {
         switch (choice) {
             case 1:
-                ((GetCoursesResponse) sendRequest(View.getCoursesView(scanner))).print();
+                ((GetCoursesResponse) sendRequest(View.getCoursesView())).print();
                 break;
             case 2:
                 ((GetGradesResponse) sendRequest(View.getStudentGradesView(user.id()))).print();

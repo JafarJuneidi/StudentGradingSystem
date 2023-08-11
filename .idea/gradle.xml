@@ -11,7 +11,17 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/DB" />
             <option value="$PROJECT_DIR$/PartOne" />
+            <option value="$PROJECT_DIR$/PartThree" />
             <option value="$PROJECT_DIR$/PartTwo" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/PartThree" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/DB" />
+            <option value="$PROJECT_DIR$/PartThree" />
           </set>
         </option>
       </GradleProjectSettings>
