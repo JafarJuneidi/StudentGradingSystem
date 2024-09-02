@@ -1,4 +1,37 @@
-# Project Documentation
+# Table of Contents
+
+1. [Part 1: Command-line / Sockets and JDBC Backend Implementation](#part-1-command-line--sockets-and-jdbc-backend-implementation)
+    - [Design](#design)
+    - [Implementation](#implementation)
+    - [Analytical Thinking](#analytical-thinking)
+    - [Challenges and Solutions](#challenges-and-solutions)
+    - [Security Considerations](#security-considerations)
+    - [Future Enhancements](#future-enhancements)
+
+2. [Part 2: Web App / Traditional MVC Servlets and JSPs Implementation](#part-2-web-app--traditional-mvc-servlets-and-jsps-implementation)
+    - [Design](#design-1)
+    - [Implementation](#implementation-1)
+    - [Analytical Thinking](#analytical-thinking-1)
+    - [Challenges and Solutions](#challenges-and-solutions-1)
+    - [Security Considerations](#security-considerations-1)
+    - [Future Enhancements](#future-enhancements-1)
+
+3. [Part 3: Web App / Spring MVC and Spring REST Implementation](#part-3-web-app--spring-mvc-and-spring-rest-implementation)
+    - [Design](#design-2)
+    - [Implementation](#implementation-2)
+    - [Analytical Thinking](#analytical-thinking-2)
+    - [Challenges and Solutions](#challenges-and-solutions-2)
+    - [Security Considerations](#security-considerations-2)
+    - [Future Enhancements](#future-enhancements-2)
+
+4. [Part 4: Backend as a Service (BaaS) Firebase Implementation](#part-4-backend-as-a-service-baas-firebase-implementation)
+    - [Design](#design-3)
+    - [Implementation](#implementation-3)
+    - [Analytical Thinking](#analytical-thinking-3)
+    - [Challenges and Solutions](#challenges-and-solutions-3)
+    - [Security Considerations](#security-considerations-3)
+    - [Future Enhancements](#future-enhancements-3)
+
 
 ## Part 1: Command-line / Sockets and JDBC Backend Implementation
 ![part_1](./images/image1.png)
