@@ -1,6 +1,7 @@
 # Project Documentation
 
 ## Part 1: Command-line / Sockets and JDBC Backend Implementation
+![part_1](./images/image1.png)
 
 ### Design
 Data flows from the Socket Client to the Socket Server via Serialized Packets. The Server queries the MySQL database through a DB Module layer that abstracts JDBC.
@@ -37,12 +38,15 @@ Detailed documentation of the code, highlighting key functionalities, algorithms
   - Used Gradle to download JDBC and JDBC driver.
   - The DB class constructor connects to the database and includes methods representing all CRUD operations (e.g., `addUser`, `getGrades`).
   - Defines types like `User`, `Course`, `StudentGrade`, which resemble a DAO.
+![image_2](./images/image2.png)
 
 - **Socket Server**: 
   - Creates a DB object on construction, receives serialized objects from the client, processes them, and returns DAO’s. It then creates a response, serializes it, and sends it back to the client.
 
 - **Request/Response Communication**: 
   - Implemented using the Strategy pattern in a Packet package with all requests and responses implementing the main Request and Response interfaces (e.g., `GetUsersRequest`, `GetUsersResponse`).
+![image_3](./images/image3.png)
+![image_4](./images/image4.png)
 
 - **Socket Client**: 
   - Establishes a connection to the server upon construction, requests the user to log in, and based on the user type, offers a list of commands. The client creates request objects, serializes them, and sends them to the server.
@@ -115,6 +119,7 @@ Suggestions for potential improvements or features.
 ---
 
 ## Part 2: Web App / Traditional MVC Servlets and JSPs Implementation
+![part_2](./images/image5.png)
 
 ### Design
 The application uses Servlets and enforces a Model-View-Controller architecture, with 5 Servlets serving 7 JSP pages. TailwindCSS is used for styling.
@@ -149,8 +154,10 @@ Detailed documentation of the code, highlighting key functionalities, algorithms
 - **DB Module**: Same as Part 1.
 
 - **Servlets**: Simple classes with decorators that take `HttpServletRequest`, query the DB, and return `HttpServletResponse`.
+  ![image_6](./images/image6.png)
 
 - **JSP**: Receives DTOs from the server, renders the page on the server, and returns HTML pages.
+  ![image_7](./images/image7.png)
 
 ### Analytical Thinking
 Critical evaluation of the strengths and weaknesses of each implementation stage.
@@ -197,6 +204,7 @@ Suggestions for potential improvements or features.
 ---
 
 ## Part 3: Web App / Spring MVC and Spring REST Implementation
+![part_3](./images/image8.png)
 
 ### Design
 This part uses a Spring Boot REST API with the DB Module for the backend and a React.js frontend.
@@ -206,10 +214,13 @@ This part uses a Spring Boot REST API with the DB Module for the backend and a R
 - **DB Module**: Same as Part 1.
 
 - **Controllers**: REST controllers handle frontend requests and send responses.
+  ![image_9](./images/image9.png)
 
 - **Models**: Models facilitate data communication and conversion.
+  ![image_10](./images/image10.png)
 
 - **React Frontend**: Displays JavaScript and makes API requests during runtime without the need to refresh the browser page.
+- ![image_11](./images/image11.png)
 
 ### Implementation
 Detailed documentation of the code, highlighting key functionalities, algorithms used, and important design decisions.
